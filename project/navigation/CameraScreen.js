@@ -38,9 +38,13 @@ export default class CameraScreen extends Component {
     OpenCamera = ()=>{
       this.props.navigation.navigate("Camera")
     }
+    OpenPosting = ()=>{
+      this.props.navigation.navigate("OnBoarding")
+    }
     OpenRequest = ()=>{
       this.props.navigation.navigate("Request")
     }
+
   
 
   
@@ -75,8 +79,7 @@ export default class CameraScreen extends Component {
                         full
                         center
                         rounded
-                    /* onPress={ () => Alert.alert('Show postings')
-                    }*/
+                        onPress={()=>this.OpenPosting()}
                     >
                         <Text style={styles.buttonText}>Show postings</Text>
                     </Button>

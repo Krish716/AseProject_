@@ -10,6 +10,7 @@ import AdminScreen from "./navigation/AdminScreen";
 import Camera from "./navigation/Camera";
 import ReceivedRequests from "./navigation/ReceivedRequests";
 import Request from "./navigation/Request";
+import OnBoarding from './navigation/OnBoarding';
 
 import * as firebase from "firebase";
 
@@ -60,6 +61,7 @@ export default class App extends React.Component {
       <Stack.Screen name ="Camera" component={Camera} />
       <Stack.Screen name ="Received" component={ReceivedRequests} />
       <Stack.Screen name ="Request" component={Request} />
+      <Stack.Screen name ="OnBoarding" component={OnBoarding} />
     </Stack.Navigator>
   </NavigationContainer>
   );
