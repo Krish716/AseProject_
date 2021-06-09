@@ -12,16 +12,14 @@ import ReceivedRequests from "./navigation/ReceivedRequests";
 import Request from "./navigation/Request";
 import OnBoarding from './navigation/OnBoarding';
 import Reqscreen from './navigation/Reqscreen';
+import ReceivedRequestsScreen from './navigation/ReceivedRequestsScreen';
 import Notifications from './navigation/Notifications'
 
 
 import * as firebase from "firebase";
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBOgtKqwB9yPdcybE4nQ1wC_wq1mnx-bEA",
-
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyBVZmfOXFASWBmEandPj_N-778nQSWxmTk",
   authDomain: "smart-5f720.firebaseapp.com",
   projectId: "smart-5f720",
@@ -72,6 +70,7 @@ export default class App extends React.Component {
       <Stack.Screen name ="OnBoarding" component={OnBoarding} />
       <Stack.Screen name ="Reqscreen" component={Reqscreen} />
       <Stack.Screen name ="Notifications" component={Notifications} />
+      <Stack.Screen name ="ReceivedRequestsScreen" component={ReceivedRequestsScreen} />
       </Stack.Navigator>
   </NavigationContainer>
   );

@@ -38,7 +38,7 @@ export default class AdminScreen extends Component {
            email:'',
            password:''
          })
-          this.props.navigation.navigate('Reqscreen')
+          this.props.navigation.replace('Reqscreen')
        })
        .catch(error=>{
           alert(error.message);

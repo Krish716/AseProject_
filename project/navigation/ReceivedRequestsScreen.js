@@ -5,22 +5,6 @@ import { Button, ImageBackground, StyleSheet, Text, View } from 'react-native';
 function ReceivedRequestsScreen(props) {
     return (    
         <View>
-            <View style={styles.Header}>
-            <View style={styles.Button}>
-                <Button
-                    title='<Home'
-                    color='white'
-                />
-                </View>
-                <Text style={styles.HeaderText}>Accepted Requests</Text>
-                <View style={styles.Button}>
-                <Button
-                    title='Logout'
-                    color='white'
-                />
-                </View>
-            </View>  
-
             <View style={styles.Container}>
                 <View style={styles.box}>
                     <View style={styles.inner}>
@@ -64,7 +48,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '15%',
         backgroundColor: "black",
-        justifyContent:'space-between',
+        justifyContent:'center',
         flexDirection:'row',
         alignItems:'center'   
     },
@@ -89,7 +73,9 @@ const styles = StyleSheet.create({
     HeaderText:{
         color:'white',
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     Button:{
         justifyContent:'flex-end',
