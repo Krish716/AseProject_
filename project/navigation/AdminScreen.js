@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet,View, T,KeyboardAvoidingView,Text ,Image,Dimensions , TouchableOpacity} from 'react-native';
+import { StyleSheet,View, T,KeyboardAvoidingView,Text ,Image,Dimensions ,ActivityIndicator, TouchableOpacity} from 'react-native';
 import { Form, Item, Input, Label, Button ,Icon } from "native-base";
+
+import * as firebase from "firebase";
 
 const {width: WIDTH}=Dimensions.get('window')
 
@@ -36,7 +38,7 @@ export default class AdminScreen extends Component {
            email:'',
            password:''
          })
-          this.props.navigation.navigate('Cities')
+          this.props.navigation.navigate('Reqscreen')
        })
        .catch(error=>{
           alert(error.message);
