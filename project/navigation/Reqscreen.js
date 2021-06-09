@@ -24,10 +24,12 @@ export default Reqscreen =({navigation}) => {
       <Text style={styles.btntxt}>Show Requests</Text>
       </TouchableOpacity>
       
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button}
+      onPress={()=>{navigation.navigate("ReceivedRequestsScreen")}}>
         <Text style={styles.btntxt}>Accepted Requests</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button}
+      onPress={()=>{navigation.navigate("ReceivedRequestsScreen")}}>
       <Text style={styles.btntxt}>Rejected Requests</Text>
       </TouchableOpacity>
     </View>
