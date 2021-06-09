@@ -44,6 +44,9 @@ export default class CameraScreen extends Component {
     OpenRequest = ()=>{
       this.props.navigation.navigate("Request")
     }
+    OpenNotifications = ()=>{
+      this.props.navigation.navigate("Notifications")
+    }
 
   
 
@@ -55,7 +58,8 @@ export default class CameraScreen extends Component {
         <View style={styles.Header}>
 
 <Avatar rounded icon={{ name: 'person', color: 'white' }} onPress={() => console.log("Works!")} size="large" containerStyle={{ marginRight: 10 }} />
-<Avatar rounded icon={{ name: 'notifications', color: 'white' }} onPress={() => console.log("Works!")} size="large" />
+<Avatar rounded icon={{ name: 'notifications', color: 'white' }} onPress={()=>this.OpenNotifications()}
+ size="large" />
 
 <Avatar rounded icon={{ name: 'logout', color: 'white' }} onPress={() => this.SignOut()} size="large" containerStyle={{ marginLeft: 10 }} />
 
