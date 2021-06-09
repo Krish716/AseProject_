@@ -19,13 +19,18 @@ import * as firebase from "firebase";
 
 var firebaseConfig = {
   apiKey: "AIzaSyBOgtKqwB9yPdcybE4nQ1wC_wq1mnx-bEA",
-  authDomain: "flash-physics-227415.firebaseapp.com",
-  projectId: "flash-physics-227415",
-  storageBucket: "flash-physics-227415.appspot.com",
-  messagingSenderId: "533935232165",
-  appId: "1:533935232165:web:87facb673e35870ef0294c",
-  measurementId: "G-BYD1L36YBT"
+
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBVZmfOXFASWBmEandPj_N-778nQSWxmTk",
+  authDomain: "smart-5f720.firebaseapp.com",
+  projectId: "smart-5f720",
+  storageBucket: "smart-5f720.appspot.com",
+  messagingSenderId: "937200982084",
+  appId: "1:937200982084:web:38f8553f28e854b2c24411",
+  measurementId: "G-KW10WJG6HN"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
@@ -67,7 +72,7 @@ export default class App extends React.Component {
       <Stack.Screen name ="OnBoarding" component={OnBoarding} />
       <Stack.Screen name ="Reqscreen" component={Reqscreen} />
       <Stack.Screen name ="Notifications" component={Notifications} />
-    </Stack.Navigator>
+      </Stack.Navigator>
   </NavigationContainer>
   );
  }
@@ -76,10 +81,10 @@ export default class App extends React.Component {
  }
   }
 }
-
-
-const styles = StyleSheet.create({
-  container: {
+    
+    
+  const styles = StyleSheet.create({
+    container: {
     flex: 1,
     backgroundColor: 'blue',
     alignItems: 'center',

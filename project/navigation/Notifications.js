@@ -7,7 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.taskswrapper}>
-        <Text style={styles.sectionTitle}>Notifications </Text>
+        
         <View style={styles.itmes}>
           <Task text={'The request has been accepted'}/>
           <Task text= {'Request rejected'}/>
