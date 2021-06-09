@@ -37,7 +37,7 @@ export default class CameraScreen extends Component {
            </Card>
            <Card>
             <CardItem>
-              <Text style={styles.placesText}>Show Postings</Text>
+              <Text style={styles.placesText}> Postings</Text>
              </CardItem>
            </Card>
         </Content>
