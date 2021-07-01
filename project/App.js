@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import HomeScreen from "./navigation/HomeScreen";
 import CameraScreen from "./navigation/CameraScreen";
+import Location from "./navigation/Location";
 import SigInScreen from "./navigation/SigInScreen";
 import AdminScreen from "./navigation/AdminScreen";
 import Camera from "./navigation/Camera";
@@ -13,7 +14,7 @@ import Request from "./navigation/Request";
 import OnBoarding from './navigation/OnBoarding';
 import Reqscreen from './navigation/Reqscreen';
 import ReceivedRequestsScreen from './navigation/ReceivedRequestsScreen';
-import Notifications from './navigation/Notifications'
+import Notifications from './navigation/Notifications';
 
 
 import * as firebase from "firebase";
@@ -65,6 +66,7 @@ export default class App extends React.Component {
       <Stack.Screen name ="SignIn" component={SigInScreen} />
       <Stack.Screen name ="Admin" component={AdminScreen} />
       <Stack.Screen name ="Camera" component={Camera} />
+      <Stack.Screen name ="Location" component={Location} />
       <Stack.Screen name ="Received" component={ReceivedRequests} />
       <Stack.Screen name ="Request" component={Request} />
       <Stack.Screen name ="OnBoarding" component={OnBoarding} />
