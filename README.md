@@ -4,12 +4,12 @@
 In this repository we are manintaing two projects, one is the main project(project) and another(ViroSample) is regarding the testing of the AR module.
 
 Project folder:
-
+==============
 
 ->The App.js is the main file which calls the supporting files and helps us to navigate through screens and the database(fire base) API is also declared in this.
 
 User Screens :
-
+==============
 
 -> the "HomeScreen.js" serves as the welcome screen of our project.
 		
@@ -35,6 +35,7 @@ User Screens :
 
 
 Admin Screens :
+==============
 
 
 -> the "AdminScreen.js" which lets us admin to signin.
@@ -48,7 +49,7 @@ Admin Screens :
 
 
 ViroSample:
-
+==============
 
 This is the project we created to just test the AR module if it is being supported by our system.
 
