@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import HomeScreen from "./navigation/HomeScreen";
+import Location from "./navigation/Location";
+import OnBoarding from './navigation/OnBoarding';
 import CameraScreen from "./navigation/CameraScreen";
 import SigInScreen from "./navigation/SigInScreen";
 import AdminScreen from "./navigation/AdminScreen";
@@ -69,9 +71,11 @@ export default class App extends React.Component {
       <Stack.Screen name ="SignIn" component={SigInScreen} />
       <Stack.Screen name ="Admin" component={AdminScreen} />
       <Stack.Screen name ="Camera" component={Camera} />
+      <Stack.Screen name ="Location" component={Location} />
       <Stack.Screen name ="ReceivedRequests" component={ReceivedRequests} />
       <Stack.Screen name ="Request" component={Request} />
       <Stack.Screen name ="Reqscreen" component={Reqscreen} />
+      <Stack.Screen name ="OnBoarding" component={OnBoarding} />
       <Stack.Screen name ="Notifications" component={Notifications} />
       <Stack.Screen name ="ReceivedRequestsScreen" component={ReceivedRequestsScreen} /> 
       <Stack.Screen name ="RejectedRequestScreen" component={RejectedRequestScreen} /> 
