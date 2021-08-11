@@ -142,7 +142,8 @@ export default class AdminScreen extends Component {
       buttonText: {
         color: "#fff",
         fontFamily:'Roboto-Light',
-        fontSize:16
+        fontSize:16,
+        marginRight:150
       },
       footer: {
         alignItems: "center"

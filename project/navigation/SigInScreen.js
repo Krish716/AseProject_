@@ -132,12 +132,13 @@ const styles = StyleSheet.create({
      justifyContent: 'flex-end',
      marginBottom: 36,
      fontFamily:'Roboto-Light',
-     fontSize:16
+     fontSize:16,
    },
    buttonText: {
      color: "#fff",
      fontFamily:'Roboto-Light',
-     fontSize:16
+     fontSize:16,
+     marginRight:150 
    },
    footer: {
      alignItems: "center"

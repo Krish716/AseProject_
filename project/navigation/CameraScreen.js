@@ -38,6 +38,9 @@ export default class CameraScreen extends Component {
     OpenCamera = ()=>{
       this.props.navigation.navigate("Camera")
     }
+    FetchLocation = ()=>{
+      this.props.navigation.navigate("Location")
+    }
     OpenPosting = ()=>{
       this.props.navigation.navigate("OnBoarding")
     }
@@ -77,6 +80,16 @@ export default class CameraScreen extends Component {
 
                     >
                         <Text style={styles.buttonText}>Scan Location</Text>
+                    </Button>
+                    <Button
+                        style={styles.button}
+                        full
+                        rounded
+                        center
+                        onPress={()=>this.FetchLocation()}
+
+                    >
+                        <Text style={styles.buttonText}>Present Location</Text>
                     </Button>
                     <Button
                         style={styles.button}
