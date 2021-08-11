@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import { StyleSheet,View, Text,KeyboardAvoidingView,TouchableOpacity, ScrollView,ActivityIndicator } from 'react-native';
+import React, { Component, useState } from 'react';
+import { StyleSheet,View, Modal,Text,KeyboardAvoidingView,TouchableOpacity, ScrollView,SafeAreaView,ActivityIndicator } from 'react-native';
 import { Form, Item, Input, Label, Button ,Icon} from "native-base";
 import ValidationComponent from 'react-native-form-validator';
 
 import * as firebase from "firebase";
+import Terms from "./Terms";
+import privacy  from './Privacy';
 
 
 
@@ -23,6 +25,8 @@ export default class SignUpScreen extends ValidationComponent {
        confirmPassword:"",
        hidePass:true,
        loading:false,
+       terms:false,
+       privacy:false
     };
   }
 
@@ -47,6 +51,11 @@ export default class SignUpScreen extends ValidationComponent {
         displayName:phonenumber,
         })
         .then(()=>{
+          firebase.database().ref('User/').push({
+            name,
+            phonenumber,
+            email,
+        })
           console.log(authenticate)
           this.props.navigation.navigate("Cities");
           this.setState({ 
@@ -66,6 +75,18 @@ securePass= ()=>{
   this.setState({hidePass:!this.state.hidePass})
 
  }
+ terms = ()=>{
+  this.setState({terms:true})
+}
+termsClose = ()=>{
+  this.setState({terms:false})
+}
+privacy =()=>{
+  this.setState({privacy:true})
+}
+privacyclose = ()=>{
+  this.setState({privacy:false})
+}
 
 
   render() {
@@ -167,8 +188,68 @@ securePass= ()=>{
          
        </Form>
        <View style={styles.footer}>
-         <Text style={styles.licence}>By Clicking Create An Account You Agree to Our Terms and Services</Text>
-       </View>
+         <Text style={styles.licence}>
+            <Text style={styles.licence}>By clicking on Signup, you confirm that you accept our</Text> 
+            <TouchableOpacity onPress={() => {this.terms()}}>
+                <Text style={[styles.licence, {color: '#0000ff'}]}>Terms of service</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+             <Text style={styles.licence}>and</Text>
+             </TouchableOpacity>
+             <TouchableOpacity onPress={() => {this.privacy()}}>
+            <Text style={[styles.licence, {color: '#0000ff'}]}>Privacy Policy</Text></TouchableOpacity>
+            </Text>
+          </View>
+          <View>
+          <Modal
+          animationType= "slide"
+          transparent={true}
+          visible={this.state.terms}>
+            <SafeAreaView>
+          <ScrollView>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalView}>
+              <Text style={styles.title}> Terms and Conditions</Text>
+              <Text>{Terms}</Text>
+              <View style={styles.checkBoxContainer}>
+            <TouchableOpacity style={[styles.continueButton, {backgroundColor: true ? 'dodgerblue' : 'grey'}]}
+            onPress={() => {this.termsClose()}}
+            >
+              <Text>Continue</Text>
+            </TouchableOpacity>
+
+          </View>
+            </View>
+          </View>
+          
+          </ScrollView>
+          </SafeAreaView>
+        </Modal>
+        <Modal
+          animationType= "slide"
+          transparent={true}
+          visible={this.state.privacy}>
+            <SafeAreaView>
+          <ScrollView>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalView}>
+              <Text style={styles.title}> Privacy Policy</Text>
+              <Text>{privacy}</Text>
+              <View style={styles.checkBoxContainer}>
+            <TouchableOpacity style={[styles.continueButton, {backgroundColor: true ? 'dodgerblue' : 'grey'}]}
+            onPress={() => {this.privacyclose()}}
+            >
+              <Text>Continue</Text>
+            </TouchableOpacity>
+
+          </View>
+            </View>
+          </View>
+          
+          </ScrollView>
+          </SafeAreaView>
+        </Modal>
+        </View>
       </View>
 
        
@@ -208,12 +289,6 @@ const styles = StyleSheet.create({
    footer: {
      alignItems: "center"
    },
-   licence:{
-    padding:10,
-    textAlign:'center',
-    fontFamily:'Roboto-Light',
-    fontSize:16
-   },
    error:{
      alignItems:"center",
      justifyContent:"center"
@@ -230,5 +305,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff'
+  },
+  licence:{
+    padding: 10,
+    textAlign:'center',
+    fontFamily:'Roboto-Light',
+    fontSize:14
+   },
+  modalContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalView:{
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    margin: 20,
+    padding: 20,
+    alignItems: 'center'
+  },
+  title:{
+    marginBottom:20,
+    color: 'dodgerblue',
+    fontWeight: 'bold',
+    textAlign:'center',
+    fontSize: 14,
+    fontFamily:'Roboto-Light',
+  },
+  checkBoxContainer:{
+    flexDirection: 'row',
+    marginVertical: 30,
+    alignItems: 'center'
+  },
+  checkBox:{
+    width: 30,
+    height: 30,
+    marginRight: 20,
+  },
+  continueButton: {
+    marginTop: 20,
+    padding: 20,
+    borderRadius: 15
   }
  });

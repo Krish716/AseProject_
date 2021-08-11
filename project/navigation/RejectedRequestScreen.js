@@ -7,7 +7,7 @@ import { Card,CardItem,Body,Right,Icon} from "native-base";
 
 
 
-function ReceivedRequestsScreen ({navigation,route}) {
+function RejectedRequestScreen ({navigation,route}) {
     const {title,name,phonenumber,address,store,category} = route.params;
     
     const [todo,settodo] = useState();
@@ -24,7 +24,7 @@ function ReceivedRequestsScreen ({navigation,route}) {
         })
      }
      const acceptedItem = ()=>{
-        firebase.database().ref('Accepted/').on('value', querySnapShot => {
+        firebase.database().ref('Rejected/').on('value', querySnapShot => {
             let list = Object.values(querySnapShot.val());
             settodo(list)
             console.log(todo)
@@ -33,7 +33,7 @@ function ReceivedRequestsScreen ({navigation,route}) {
 
 
      const accept = ()=>{
-       firebase.database().ref('Accepted/').push({
+       firebase.database().ref('Rejected/').push({
            name,
            phonenumber,
            address,
@@ -67,7 +67,6 @@ function ReceivedRequestsScreen ({navigation,route}) {
             <FlatList style={{width:'100%'}}
             data={todo}
             keyExtractor={(item)=>item.id}
-            // keyExtractor={({ id }, item) => id}
             renderItem={({item})=>{
                return(
               <Card>
@@ -132,4 +131,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ReceivedRequestsScreen;
+export default RejectedRequestScreen;

@@ -6,7 +6,7 @@ import * as firebase from "firebase";
 
 
 
-export default class ReceivedRequests extends Component {
+export default class RejectedRequest extends Component {
 
    
   constructor(props) {
@@ -26,15 +26,12 @@ export default class ReceivedRequests extends Component {
   }
 
 
-  submit(){
-    
-  }
 
 
 
   componentDidMount(){
 
-    firebase.database().ref('Admin/').on('value', querySnapShot => {
+    firebase.database().ref('Rejected/').on('value', querySnapShot => {
       let todos = Object.values( querySnapShot.val())
       this.setState({
         todos
@@ -60,18 +57,6 @@ export default class ReceivedRequests extends Component {
                  <Text style={styles.text}>Store: {item.store}</Text>
                  <Text style={styles.text}>Category: {item.category}</Text>
               </Body>
-            </CardItem>
-            <CardItem>
-            <Right style={styles.space}>
-            <Button full block dark rounded  onPress={()=>{this.props.navigation.navigate("ReceivedRequestsScreen",{title:"Accepted Request",name:item.name,phonenumber:item.phonenumber,address:item.address,category:item.category,store:item.store})}}>
-            <Text style={styles.color}>Accept</Text>
-            </Button>
-          </Right>
-          <Right>
-             <Button full dark rounded onPress={()=>{this.props.navigation.navigate("RejectedRequestScreen",{title:"RejectedRequest",name:item.name,phonenumber:item.phonenumber,address:item.address,category:item.category,store:item.store})}}>
-              <Text style={styles.color}>Reject</Text>
-              </Button>
-              </Right>
             </CardItem>
           </Card>
               )

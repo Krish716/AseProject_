@@ -1,55 +1,44 @@
 import React from 'react';
-import { Avatar} from 'react-native-elements';
 
 import { StyleSheet, Text, View,TouchableOpacity } from 'react-native';
 import * as firebase from "firebase";
 
 
 
+
+
 export default Reqscreen =({navigation}) => {
 
-  
-  SignOut =()=>{
-    firebase
-    .auth()
-    .signOut()
-    .then(()=>{
-      navigation.navigate('Welcome')
-    })
-    .catch((err)=>{
-       alert(err.message)
-    })
- }
   return (
     
     <View>
     <View style={styles.head}>
      <Text style={styles.maintext}>HOME PAGE </Text>
-     <TouchableOpacity>
-     <Avatar rounded icon={{ name: 'logout', color: 'white' }} onPress={() => this.SignOut()} size="large" containerStyle={{ marginLeft: 10 }} />
+     <TouchableOpacity
+     onPress={()=>{navigation.navigate("Cities")}}>
+       <Text style={styles.logouttxt}>Logout</Text>
        </TouchableOpacity>
     </View>
 
 
     <View style={styles.content}>
       <TouchableOpacity style={styles.button}
-       onPress={()=>{navigation.navigate("Received")}}>
+       onPress={()=>{navigation.navigate("ReceivedRequests")}}>
       <Text style={styles.btntxt}>Show Requests</Text>
       </TouchableOpacity>
       
       <TouchableOpacity style={styles.button}
-      onPress={()=>{navigation.navigate("ReceivedRequestsScreen")}}>
+      onPress={()=>{navigation.navigate("AcceptedRequest")}}>
         <Text style={styles.btntxt}>Accepted Requests</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}
-      onPress={()=>{navigation.navigate("ReceivedRequestsScreen")}}>
+      onPress={()=>{navigation.navigate("RejectedRequest")}}>
       <Text style={styles.btntxt}>Rejected Requests</Text>
       </TouchableOpacity>
     </View>
 
    </View>
   );
- 
 }
 
 
@@ -113,4 +102,3 @@ logouttxt:{
     padding:15,
   }
 })
-

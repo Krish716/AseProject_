@@ -45,7 +45,7 @@ export default class CameraScreen extends Component {
       this.props.navigation.navigate("Request")
     }
     OpenNotifications = ()=>{
-      this.props.navigation.navigate("Notifications")
+      this.props.navigation.navigate("Notifications",{title:"Notifications"})
     }
 
   

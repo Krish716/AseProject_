@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet,View, Text,KeyboardAvoidingView,TouchableOpacity, ScrollView,ActivityIndicator } from 'react-native';
 import { Form, Item, Input, Label, Button ,Icon} from "native-base";
+import * as firebase from "firebase";
+
 
 export default class Request extends Component {
     constructor(props) {
@@ -13,8 +15,23 @@ export default class Request extends Component {
            category:"",
         };
       }
-      handleSubmit(){
-        alert("submitted successful" );
+      handleSubmit(name,phonenumber,address,store,category){
+        var user = firebase.auth().currentUser;
+        var uid=user.uid;
+        var ref2 = firebase.database().ref('Admin/');
+        ref2.push({
+            name,
+            phonenumber,
+            address,
+            store,
+            category,
+        }).then((data)=>{
+          alert("Submitted")
+            console.log(data)
+        }).catch((error)=>{
+            //error callback
+            console.log( error)
+        })
       }
      
 
@@ -34,6 +51,7 @@ export default class Request extends Component {
                  autoCapitalize="none"
                  placeholder="Name"
                  keyboardType="name-phone-pad"
+                 onChangeText={name => this.setState({ name })}
                />
              </Item>
              <Item regular  style = {styles.item}>
@@ -43,6 +61,7 @@ export default class Request extends Component {
                autoCapitalize="none"
                placeholder="Phone Number"
                keyboardType="numeric"
+               onChangeText={phonenumber => this.setState({ phonenumber })}
              />
            </Item>
              <Item regular  style = {styles.item}>
@@ -52,6 +71,7 @@ export default class Request extends Component {
                  autoCapitalize="none"
                  keyboardType="name-phone-pad"
                  placeholder="Address"
+                 onChangeText={address=> this.setState({ address })}
                />
              </Item>
              <Item regular  style = {styles.item}>
@@ -61,6 +81,7 @@ export default class Request extends Component {
                  autoCapitalize="none"
                  keyboardType="name-phone-pad"
                  placeholder="Store"
+                 onChangeText={store=> this.setState({ store })}
                />
              </Item>
              <Item regular  style = {styles.item}>
@@ -70,6 +91,7 @@ export default class Request extends Component {
                  autoCapitalize="none"
                  keyboardType="name-phone-pad"
                  placeholder="Category"
+                 onChangeText={category=> this.setState({ category })}
                />
              </Item>
              
@@ -80,6 +102,11 @@ export default class Request extends Component {
           dark
           onPress={() => {
              this.handleSubmit(
+                this.state.name,
+                this.state.phonenumber,
+                this.state.address,
+                this.state.store,
+                this.state.category
                 )
           }}>
            <Text style={styles.buttonText}>Submit</Text>
@@ -149,4 +176,4 @@ const styles = StyleSheet.create({
      justifyContent: 'center',
      backgroundColor: '#fff'
    }
-  });   
+  });

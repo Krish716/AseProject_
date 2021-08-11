@@ -1,18 +1,27 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, FlatList } from "react-native";
-import Task from "../navigation/Task";
+import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity} from "react-native";
+import { Icon } from "native-base";
 
-export default function App() {
+
+
+export default  Notifications = ({navigation,route}) =>{
+
+
+   const {title,phonenumber} = route.params; 
+
+   const Close =()=>{
+      navigation.navigate('Cities')
+   }
   return (
     <View style={styles.container}>
-      <View style={styles.taskswrapper}>
-        
-        <View style={styles.itmes}>
-          <Task text={'The request has been accepted'}/>
-          <Task text= {'Request rejected'}/>
-          <Task text={'New Place added'}/>
-        </View>
+
+        <View style={styles.items}>
+        <Text style={styles.color}>{title}</Text>
+        <Text style={styles.color}>{phonenumber}</Text>
+        <TouchableOpacity onPress={()=>{Close()}}>
+        <Icon name="close" size={1} style={styles.person}></Icon>
+        </TouchableOpacity>
+          
       </View>
     </View>
   );
@@ -23,17 +32,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#d3d3d3",
   },
-  taskwrapper: {
-    paddingTop: 80,
-    paddingHorizontal: 20,
+  color:{
+    fontFamily:'Roboto-Light',
+    fontSize:16
   },
-  sectionTitle: {
-    paddingTop: 80,
-    fontSize: 24,
-    fontWeight: "bold",
-    borderBottomWidth:2,
+  items: {
+     flexDirection:'row',
+     justifyContent:'space-between',
+     margin:10,
   },
-  itmes: {
-    marginTop:30,
-  },
+  icon:{
+     textAlign:'right'
+  }
 });
